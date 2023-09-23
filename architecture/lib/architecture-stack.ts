@@ -22,7 +22,7 @@ export class ArchitectureStack extends Stack {
       repository: frontendRepo,
       branch: process.env.FRONTEND_BRANCH || '',
       bucketSite: frontendDistribution.bucket,
-      wsUrl: `https://${process.env.API_DOMAIN}`,
+      wsUrl: `${process.env.WS_URL}`,
     });
   }
 }
