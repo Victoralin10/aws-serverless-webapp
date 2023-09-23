@@ -5,7 +5,7 @@ import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
 import * as cloudfrontOrigins from 'aws-cdk-lib/aws-cloudfront-origins';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 
-import { Duration, RemovalPolicy } from 'aws-cdk-lib';
+import { Duration, RemovalPolicy, CfnOutput } from 'aws-cdk-lib';
 
 interface SpaArchProps {
 }
@@ -67,6 +67,10 @@ export class SpaArch extends Construct {
         responsePagePath: '/index.html',
       }],
       enableIpv6: true,
+    });
+
+    new CfnOutput(this, 'WebUrl', {
+      value: `https://${this.distribution.distributionDomainName}`,
     });
   }
 }
