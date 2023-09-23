@@ -50,7 +50,7 @@ export class FrontendPipeline extends Construct {
             value: props.wsUrl
           }
         },
-        buildImage: codebuild.LinuxBuildImage.STANDARD_5_0,
+        buildImage: codebuild.LinuxBuildImage.STANDARD_7_0,
       },
       buildSpec: codebuild.BuildSpec.fromObjectToYaml({
         version: '0.2',
